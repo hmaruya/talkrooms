@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410014451) do
+ActiveRecord::Schema.define(version: 20180410075803) do
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "talkroom_id"
+    t.index ["talkroom_id"], name: "index_messages_on_talkroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "room_members", force: :cascade do |t|
+    t.integer "talkroom_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["talkroom_id"], name: "index_room_members_on_talkroom_id"
+    t.index ["user_id"], name: "index_room_members_on_user_id"
+  end
+
+  create_table "talkrooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_talkrooms_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

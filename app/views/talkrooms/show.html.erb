@@ -1,0 +1,20 @@
+<h1>Talkrooms#show</h1>
+
+<div id="messages">
+  <table id="chat_tab">
+  <% @messages.each do |msg| %>
+    <tr class="message <%= current_user?(msg.user) ? "me" : "other" %>">
+      <td class="from_usr"><%= msg.user.name %></td>
+      <td class="content"><%= msg.content %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
+
+<div id="speakformbox">
+  <form>
+    <label>Say something:</label><br>
+    <input type="text" id="message_box" name="content" data-behavior="talkroom_speaker">
+    <input type="hidden" id="talkroom_id" name="talkroom_id" value="<%= @talkroom_id %>">
+  </form>
+</div>

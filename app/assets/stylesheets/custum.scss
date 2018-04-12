@@ -86,3 +86,28 @@ input {
   }
 }
 
+/* messages */
+
+#messages {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.message {
+  .from_usr {
+    float: left;
+  }
+
+  .content {
+    padding-left: 10px;
+  }
+}
+
+#message::after {
+   clear: both;
+ }
+
+#message_box {
+  width: 50%;
+  margin: 10px, auto;
+}

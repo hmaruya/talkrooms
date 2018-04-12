@@ -1,0 +1,4 @@
+<tr class="message <%= current_user?(message.user) ? "me" : "other" %>">
+  <td class="from_usr"><%= message.user.name %></td>
+  <td class="content"><%= message.content %></td>
+</tr>
